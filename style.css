@@ -11,6 +11,7 @@ body {
     font-family: sans-serif;
     background-color: var(--dark-blue);
     color: var(--white);
+    font-size: 16px; /* Base font size for better responsiveness */
     line-height: 1.6;
     margin: 0;
 }
@@ -27,6 +28,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 0;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
 }
 
 .logo {
@@ -36,6 +38,11 @@ body {
     text-decoration: none;
 }
 
+.brand-logo {
+    height: 33px;
+    width: auto;
+    border-radius: 5px;
+}
 .nav-links {
     display: flex;
     list-style: none;
@@ -58,6 +65,34 @@ body {
 
 .nav-links a.active {
     color: var(--light-blue); /* Highlight active page */
+}
+
+/* Language Switcher */
+.language-switcher {
+    margin-left: 1.5rem; /* Space from nav links */
+}
+
+.language-switcher select {
+    background-color: rgba(30, 58, 138, 0.5);
+    border: 1px solid rgba(59, 130, 246, 0.5);
+    color: var(--white);
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    -webkit-appearance: none; /* Remove default arrow on WebKit browsers */
+    -moz-appearance: none; /* Remove default arrow on Firefox */
+    appearance: none; /* Remove default arrow */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23bfdbfe%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-6.5%200-12.3%203.2-16.1%208.1-3.8%204.9-4.5%2011.6-2.1%2017.7l139.3%20182.6c3.8%205%209.7%207.6%2015.9%207.6s12.1-2.6%2015.9-7.6l139.3-182.6c2.4-6.1%201.7-12.8-2.1-17.7z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 0.7em top 50%, 0 0;
+    background-size: 0.65em auto, 100%;
+    padding-right: 2em; /* Space for the custom arrow */
+}
+
+.language-switcher select:focus {
+    outline: none;
+    border-color: var(--light-blue);
 }
 
 /* Main Content */
@@ -476,19 +511,4 @@ body {
     .device-grid, .feature-grid, .news-grid, .team-grid {
         gap: 1.5rem; /* Mengurangi jarak antar kartu di layar kecil */
     }
-}
-
-/* style.css (Tambahkan atau pastikan kode ini ada di bagian bawah) */
-
-/* Gaya untuk Logo Brand di Navigasi */
-.logo {
-    display: flex; /* Agar logo dan teks berdampingan */
-    align-items: center; /* Rata tengah vertikal */
-    gap: 0.4rem; /* Jarak antara logo dan teks */
-}
-
-.brand-logo {
-    height: 33px; /* INI YANG PALING PENTING: Mengatur tinggi logo */
-    width: auto; /* Lebar otomatis agar tidak gepeng */
-    border-radius: 5px;
 }
