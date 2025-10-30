@@ -1,0 +1,494 @@
+/* Color Variables */
+:root {
+    --dark-blue: #0a192f;
+    --light-blue: #3b82f6;
+    --white: #f8fafc;
+    --grey: #94a3b8;
+}
+
+/* Basic Setup */
+body {
+    font-family: sans-serif;
+    background-color: var(--dark-blue);
+    color: var(--white);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Header & Navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    color: var(--grey);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease; /* <-- TAMBAHKAN BARIS INI */
+}
+
+.nav-links a:hover {
+    color: var(--light-blue);
+}
+
+.nav-links a.active {
+    color: var(--light-blue); /* Highlight active page */
+}
+
+/* Main Content */
+.hero {
+    padding: 6rem 0;
+    text-align: center;
+}
+.hero h1 {
+    font-size: 3rem;
+}
+.hero h1 span {
+    color: var(--light-blue);
+}
+.hero p {
+    font-size: 1.2rem;
+    color: var(--grey);
+}
+.cta-button {
+    display: inline-block;
+    background-color: var(--light-blue);
+    color: var(--white);
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* <-- TAMBAHKAN BARIS INI */
+}
+
+.cta-button:hover {
+    background-color: #2563eb;
+}
+
+.features {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.features h2, .news-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.features .subtitle, .news-section .subtitle {
+    font-size: 1.1rem;
+    color: var(--grey);
+    margin-bottom: 3rem;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.feature-card {
+    background-color: rgba(30, 58, 138, 0.2); /* Slightly lighter than device card */
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card .icon {
+    font-size: 3rem;
+    color: var(--light-blue);
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.feature-card p {
+    color: var(--grey);
+    font-size: 0.95rem;
+}
+
+/* News Section */
+.news-section {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.news-card {
+    background-color: rgba(30, 58, 138, 0.2);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.news-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.news-card-content {
+    padding: 1.5rem;
+}
+
+.news-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.news-card p {
+    color: var(--grey);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.news-card .read-more {
+    color: var(--light-blue);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.news-card .read-more:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 1px solid #1e3a8a;
+}
+
+/* style.css (Tambahkan kode ini di bagian paling bawah) */
+
+/* Styles for the Devices Page */
+.device-section {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.device-section h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.device-section .subtitle {
+    font-size: 1.1rem;
+    color: var(--grey);
+    margin-bottom: 3rem;
+}
+
+/* Search Bar for Devices */
+.search-bar {
+    margin-bottom: 3rem;
+}
+
+.search-bar input {
+    width: 100%;
+    max-width: 500px;
+    padding: 0.8rem 1.2rem;
+    border-radius: 25px;
+    border: 1px solid rgba(59, 130, 246, 0.5);
+    background-color: rgba(30, 58, 138, 0.5);
+    color: var(--white);
+    font-size: 1rem;
+}
+
+.search-bar input::placeholder {
+    color: var(--grey);
+}
+
+.search-bar input:focus {
+    outline: none;
+    border-color: var(--light-blue);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.device-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.device-card {
+    background-color: rgba(30, 58, 138, 0.3);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.device-card:hover {
+    transform: translateY(-5px);
+}
+
+.device-card img {
+    max-width: 150px;
+    max-height: 300px; /* Ensure images don't get too tall */
+    height: auto;
+    margin-bottom: 1.5rem;
+}
+
+.device-card h2 {
+    font-size: 1.8rem;
+    color: var(--white);
+    margin-bottom: 0.25rem;
+}
+
+.device-card .codename {
+    color: var(--grey);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.download-button {
+    display: block; /* Makes the button take the full width */
+    background-color: var(--light-blue);
+    color: var(--white);
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+    background-color: #2563eb;
+}
+
+/* Team Section */
+.team-section {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.team-section h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.team-section .subtitle {
+    font-size: 1.1rem;
+    color: var(--grey);
+    margin-bottom: 3rem;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.team-card {
+    background-color: rgba(30, 58, 138, 0.2);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.team-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid var(--light-blue);
+}
+
+.team-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.25rem;
+}
+
+.team-card p.role {
+    color: var(--grey);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.social-links a {
+    color: var(--grey);
+    font-size: 1.2rem;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--light-blue);
+}
+
+/* General scroll-reveal animation */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* -- Responsive Design -- */
+
+/* Gaya untuk Hamburger Menu */
+.hamburger {
+    display: none; /* Sembunyikan di layar besar */
+    cursor: pointer;
+}
+
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--white);
+}
+
+/* Animasi untuk Hamburger menjadi 'X' */
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+
+
+
+/* @media query: Aturan ini hanya berlaku untuk layar kecil (HP/Tablet) */
+@media(max-width: 768px) {
+    .hamburger {
+        display: block; /* Tampilkan hamburger di layar kecil */
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%; /* Sembunyikan menu di luar layar */
+        top: 75px; /* Jarak dari atas, disesuaikan sedikit */
+        flex-direction: column;
+        background-color: var(--dark-blue);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-menu.active {
+        left: 0; /* Tampilkan menu saat di-klik */
+    }
+
+    .nav-links {
+        flex-direction: column; /* Ubah link jadi vertikal */
+        padding: 2rem 0;
+    }
+
+    .nav-links li {
+        margin: 1.5rem 0;
+    }
+
+    /* Menyesuaikan padding container utama */
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    /* Menyesuaikan ukuran font untuk keterbacaan */
+    .hero h1 {
+        font-size: 2.5rem; /* Sedikit lebih kecil dari 3rem */
+    }
+
+    .hero p {
+        font-size: 1.1rem; /* Sedikit lebih kecil dari 1.2rem */
+    }
+
+    .features h2, .news-section h2, .device-section h1, .team-section h1 {
+        font-size: 2.2rem; /* Sedikit lebih kecil dari 2.5rem/2.8rem */
+    }
+
+    .device-grid, .feature-grid, .news-grid, .team-grid {
+        gap: 1.5rem; /* Mengurangi jarak antar kartu di layar kecil */
+    }
+}
+
+/* style.css (Tambahkan atau pastikan kode ini ada di bagian bawah) */
+
+/* Gaya untuk Logo Brand di Navigasi */
+.logo {
+    display: flex; /* Agar logo dan teks berdampingan */
+    align-items: center; /* Rata tengah vertikal */
+    gap: 0.4rem; /* Jarak antara logo dan teks */
+}
+
+.brand-logo {
+    height: 33px; /* INI YANG PALING PENTING: Mengatur tinggi logo */
+    width: auto; /* Lebar otomatis agar tidak gepeng */
+    border-radius: 5px;
+}
