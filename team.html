@@ -13,7 +13,7 @@
      <header class="navbar container">
     <a href="index.html" class="logo">
         <img src="logo.png" alt="SleepOS Logo" class="brand-logo">
-        SleepOS
+        <span>SleepOS</span>
     </a>
     <nav class="nav-menu">
         <ul class="nav-links">
@@ -21,12 +21,17 @@
             <li><a href="perangkat.html" data-i18n="nav.devices">Devices</a></li>
             <li><a href="team.html" data-i18n="nav.team">Team</a></li>
         </ul>
-    </nav>
-    <div class="language-switcher">
-        <select id="language-select">
-            <option value="en">English</option>
-            <option value="id">Bahasa Indonesia</option>
-        </select>
+        <!-- Language Dropdown -->
+        <div class="language-dropdown">
+            <button class="language-dropdown-toggle" id="language-toggle-btn">
+                <img src="https://flagcdn.com/w20/us.png" alt="English Flag" id="current-lang-flag">
+                <span id="current-lang-text">EN</span>
+            </button>
+            <ul class="language-dropdown-menu" id="language-menu">
+                <li><a href="#" data-lang="en"><img src="https://flagcdn.com/w20/us.png" alt="English Flag"> English</a></li>
+                <li><a href="#" data-lang="id"><img src="https://flagcdn.com/w20/id.png" alt="Indonesian Flag"> Indonesia</a></li>
+            </ul>
+        </div>
     </nav>
     <div class="hamburger">
         <span class="bar"></span>

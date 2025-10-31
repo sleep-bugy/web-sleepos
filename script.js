@@ -6,6 +6,8 @@ const translations = {
         "nav.features": "Features",
         "nav.devices": "Devices",
         "nav.team": "Team",
+        "language.button.en": "EN", // Teks tombol saat bahasa saat ini adalah Inggris
+        "language.button.id": "ID", // Teks tombol saat bahasa saat ini adalah Indonesia
         "hero.title": "The OS That Puts You at <span>Ease</span>",
         "hero.description": "SleepOS is designed to deliver a clean, smooth, and distraction-free Android experience.",
         "hero.cta": "Download Now",
@@ -63,6 +65,8 @@ const translations = {
         "nav.features": "Fitur",
         "nav.devices": "Perangkat",
         "nav.team": "Tim",
+        "language.button.en": "EN", // Teks tombol saat bahasa saat ini adalah Inggris
+        "language.button.id": "ID", // Teks tombol saat bahasa saat ini adalah Indonesia
         "hero.title": "OS yang Membuat Anda <span>Nyaman</span>",
         "hero.description": "SleepOS dirancang untuk memberikan pengalaman Android yang bersih, mulus, dan bebas gangguan.",
         "hero.cta": "Unduh Sekarang",
@@ -139,8 +143,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Language Switcher ---
-    const languageSelect = document.getElementById('language-select');
+    // --- New Language Dropdown Logic ---
+    const langToggleButton = document.getElementById('language-toggle-btn');
+    const langMenu = document.getElementById('language-menu');
+    const currentLangFlag = document.getElementById('current-lang-flag');
+    const currentLangText = document.getElementById('current-lang-text');
 
     function setLanguage(lang) {
         const currentTranslations = translations[lang];
@@ -175,14 +182,44 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         localStorage.setItem('selectedLanguage', lang);
+
+        // Update the dropdown toggle button
+        if (currentLangFlag && currentLangText) {
+            if (lang === 'id') {
+                currentLangFlag.src = 'https://flagcdn.com/w20/id.png';
+                currentLangFlag.alt = 'Indonesian Flag';
+                currentLangText.textContent = 'ID';
+            } else {
+                currentLangFlag.src = 'https://flagcdn.com/w20/us.png';
+                currentLangFlag.alt = 'English Flag';
+                currentLangText.textContent = 'EN';
+            }
+        }
     }
 
-    if (languageSelect) {
+    if (langToggleButton && langMenu) {
         const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
-        languageSelect.value = savedLanguage;
         setLanguage(savedLanguage);
-        languageSelect.addEventListener('change', (event) => {
-            setLanguage(event.target.value);
+
+        langToggleButton.addEventListener('click', (e) => {
+            e.stopPropagation(); // Mencegah event 'click' menyebar ke 'document'
+            langMenu.classList.toggle('show');
+        });
+
+        langMenu.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = e.target.closest('a');
+            if (target && target.dataset.lang) {
+                setLanguage(target.dataset.lang);
+                langMenu.classList.remove('show');
+            }
+        });
+
+        // Menutup dropdown jika pengguna mengklik di luar area dropdown
+        document.addEventListener('click', () => {
+            if (langMenu.classList.contains('show')) {
+                langMenu.classList.remove('show');
+            }
         });
     }
 
