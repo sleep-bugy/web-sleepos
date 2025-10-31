@@ -6,8 +6,6 @@ const translations = {
         "nav.features": "Features",
         "nav.devices": "Devices",
         "nav.team": "Team",
-        "language.button.en": "EN", // Teks tombol saat bahasa saat ini adalah Inggris
-        "language.button.id": "ID", // Teks tombol saat bahasa saat ini adalah Indonesia
         "hero.title": "The OS That Puts You at <span>Ease</span>",
         "hero.description": "SleepOS is designed to deliver a clean, smooth, and distraction-free Android experience.",
         "hero.cta": "Download Now",
@@ -65,8 +63,6 @@ const translations = {
         "nav.features": "Fitur",
         "nav.devices": "Perangkat",
         "nav.team": "Tim",
-        "language.button.en": "EN", // Teks tombol saat bahasa saat ini adalah Inggris
-        "language.button.id": "ID", // Teks tombol saat bahasa saat ini adalah Indonesia
         "hero.title": "OS yang Membuat Anda <span>Nyaman</span>",
         "hero.description": "SleepOS dirancang untuk memberikan pengalaman Android yang bersih, mulus, dan bebas gangguan.",
         "hero.cta": "Unduh Sekarang",
@@ -116,6 +112,54 @@ const translations = {
         "team.member3_alt": "Anggota Tim Satoshi Nakamoto",
         "team.member4_alt": "Anggota Tim Alice Wonderland",
         "team.member5_alt": "Anggota Tim Bob Builder"
+    },
+    de: { // German translations (placeholder)
+        "page.home_title": "SleepOS - Startseite",
+        "nav.features": "Funktionen",
+        "nav.devices": "Geräte",
+        "nav.team": "Team",
+        "hero.title": "Das Betriebssystem, das Sie <span>beruhigt</span>",
+        "hero.description": "SleepOS wurde entwickelt, um ein sauberes, reibungsloses und ablenkungsfreies Android-Erlebnis zu bieten.",
+        "hero.cta": "Jetzt herunterladen",
+        "features.title": "Warum <span>SleepOS</span> wählen?",
+        "features.subtitle": "SleepOS ist ein AOSP-basiertes ROM, das sich auf ein sauberes, reibungsloses und stabiles Erlebnis mit sorgfältig ausgewählten Funktionen für bessere Leistung und Akkulaufzeit konzentriert.",
+        "footer.copyright": "&copy; 2025 SleepOS Projekt."
+    },
+    es: { // Spanish translations (placeholder)
+        "page.home_title": "SleepOS - Página de inicio",
+        "nav.features": "Características",
+        "nav.devices": "Dispositivos",
+        "nav.team": "Equipo",
+        "hero.title": "El SO que te da <span>tranquilidad</span>",
+        "hero.description": "SleepOS está diseñado para ofrecer una experiencia Android limpia, fluida y sin distracciones.",
+        "hero.cta": "Descargar ahora",
+        "features.title": "¿Por qué elegir <span>SleepOS</span>?",
+        "features.subtitle": "SleepOS es una ROM basada en AOSP, enfocada en ofrecer una experiencia limpia, fluida y estable con características cuidadosamente seleccionadas para un mejor rendimiento y duración de la batería.",
+        "footer.copyright": "&copy; 2025 Proyecto SleepOS."
+    },
+    fr: { // French translations (placeholder)
+        "page.home_title": "SleepOS - Page d'accueil",
+        "nav.features": "Fonctionnalités",
+        "nav.devices": "Appareils",
+        "nav.team": "Équipe",
+        "hero.title": "L'OS qui vous met à <span>l'aise</span>",
+        "hero.description": "SleepOS est conçu pour offrir une expérience Android propre, fluide et sans distraction.",
+        "hero.cta": "Télécharger maintenant",
+        "features.title": "Pourquoi choisir <span>SleepOS</span>?",
+        "features.subtitle": "SleepOS est une ROM basée sur AOSP, axée sur une expérience propre, fluide et stable avec des fonctionnalités soigneusement sélectionnées pour de meilleures performances et une meilleure autonomie de la batterie.",
+        "footer.copyright": "&copy; 2025 Projet SleepOS."
+    },
+    hi: { // Hindi translations (placeholder)
+        "page.home_title": "SleepOS - होमपेज",
+        "nav.features": "विशेषताएँ",
+        "nav.devices": "डिवाइस",
+        "nav.team": "टीम",
+        "hero.title": "वह OS जो आपको <span>आराम</span> देता है",
+        "hero.description": "SleepOS को एक स्वच्छ, सहज और व्याकुलता-मुक्त Android अनुभव प्रदान करने के लिए डिज़ाइन किया गया है।",
+        "hero.cta": "अभी डाउनलोड करें",
+        "features.title": "<span>SleepOS</span> क्यों चुनें?",
+        "features.subtitle": "SleepOS एक AOSP-आधारित ROM है, जो बेहतर प्रदर्शन और बैटरी जीवन के लिए सावधानीपूर्वक चुनी गई सुविधाओं के साथ एक स्वच्छ, सहज और स्थिर अनुभव प्रदान करने पर केंद्रित है।",
+        "footer.copyright": "&copy; 2025 स्लीपओएस प्रोजेक्ट।"
     }
 };
 
@@ -189,6 +233,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 currentLangFlag.src = 'https://flagcdn.com/w20/id.png';
                 currentLangFlag.alt = 'Indonesian Flag';
                 currentLangText.textContent = 'ID';
+            } else if (lang === 'de') {
+                currentLangFlag.src = 'https://flagcdn.com/w20/de.png';
+                currentLangFlag.alt = 'German Flag';
+                currentLangText.textContent = 'DE';
+            } else if (lang === 'es') {
+                currentLangFlag.src = 'https://flagcdn.com/w20/es.png';
+                currentLangFlag.alt = 'Spanish Flag';
+                currentLangText.textContent = 'ES';
+            } else if (lang === 'fr') {
+                currentLangFlag.src = 'https://flagcdn.com/w20/fr.png';
+                currentLangFlag.alt = 'French Flag';
+                currentLangText.textContent = 'FR';
+            } else if (lang === 'hi') {
+                currentLangFlag.src = 'https://flagcdn.com/w20/in.png';
+                currentLangFlag.alt = 'Hindi Flag';
+                currentLangText.textContent = 'HI';
             } else {
                 currentLangFlag.src = 'https://flagcdn.com/w20/us.png';
                 currentLangFlag.alt = 'English Flag';
