@@ -1,9 +1,13 @@
 /* Color Variables */
 :root {
     --dark-blue: #0a192f;
-    --light-blue: #3b82f6;
+    --light-blue: #61dafb; /* Neon Blue */
+    --purple: #c792ea;   /* Neon Purple */
+    --pink: #ff80ab;     /* Neon Pink */
     --white: #f8fafc;
     --grey: #94a3b8;
+    --card-bg: rgba(23, 42, 76, 0.5);
+    --border-color: rgba(97, 218, 251, 0.2);
 }
 
 /* Basic Setup */
@@ -11,6 +15,8 @@ body {
     font-family: sans-serif;
     background-color: var(--dark-blue);
     color: var(--white);
+    background-image: radial-gradient(circle at 1px 1px, rgba(97, 218, 251, 0.1) 1px, transparent 0);
+    background-size: 20px 20px;
     font-size: 16px; /* Base font size for better responsiveness */
     line-height: 1.6;
     margin: 0;
@@ -36,6 +42,17 @@ body {
     font-weight: bold;
     color: var(--white);
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo span {
+    background: linear-gradient(90deg, var(--light-blue), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
 }
 
 .brand-logo {
@@ -67,32 +84,67 @@ body {
     color: var(--light-blue); /* Highlight active page */
 }
 
-/* Language Switcher */
-.language-switcher {
-    margin-left: 1.5rem; /* Space from nav links */
+/* New Language Dropdown */
+.language-dropdown {
+    position: relative;
+    margin-left: 2rem;
 }
 
-.language-switcher select {
-    background-color: rgba(30, 58, 138, 0.5);
-    border: 1px solid rgba(59, 130, 246, 0.5);
+.language-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
     color: var(--white);
-    padding: 0.5rem 0.8rem;
+    padding: 0.5rem 1rem;
     border-radius: 8px;
-    font-size: 0.9rem;
+    font-weight: bold;
     cursor: pointer;
-    -webkit-appearance: none; /* Remove default arrow on WebKit browsers */
-    -moz-appearance: none; /* Remove default arrow on Firefox */
-    appearance: none; /* Remove default arrow */
-    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23bfdbfe%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-6.5%200-12.3%203.2-16.1%208.1-3.8%204.9-4.5%2011.6-2.1%2017.7l139.3%20182.6c3.8%205%209.7%207.6%2015.9%207.6s12.1-2.6%2015.9-7.6l139.3-182.6c2.4-6.1%201.7-12.8-2.1-17.7z%22%2F%3E%3C%2Fsvg%3E');
-    background-repeat: no-repeat;
-    background-position: right 0.7em top 50%, 0 0;
-    background-size: 0.65em auto, 100%;
-    padding-right: 2em; /* Space for the custom arrow */
+    transition: background-color 0.3s ease;
 }
 
-.language-switcher select:focus {
-    outline: none;
-    border-color: var(--light-blue);
+.language-dropdown-toggle:hover {
+    background-color: rgba(97, 218, 251, 0.1);
+}
+
+.language-dropdown-toggle img {
+    width: 20px;
+    border-radius: 2px;
+}
+
+.language-dropdown-menu {
+    position: absolute;
+    top: 120%;
+    right: 0;
+    background: var(--dark-blue);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    list-style: none;
+    padding: 0.5rem;
+    margin: 0;
+    width: max-content;
+    z-index: 10;
+    display: none; /* Hidden by default */
+}
+
+.language-dropdown-menu.show {
+    display: block;
+}
+
+.language-dropdown-menu a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 1rem;
+    color: var(--grey);
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.language-dropdown-menu a:hover {
+    background-color: var(--card-bg);
+    color: var(--white);
 }
 
 /* Main Content */
@@ -109,10 +161,12 @@ body {
 .hero p {
     font-size: 1.2rem;
     color: var(--grey);
+    max-width: 600px;
+    margin: 1rem auto 2rem auto;
 }
 .cta-button {
     display: inline-block;
-    background-color: var(--light-blue);
+    background: linear-gradient(90deg, var(--light-blue), var(--purple));
     color: var(--white);
     padding: 0.8rem 1.5rem;
     border-radius: 8px;
@@ -123,7 +177,9 @@ body {
 }
 
 .cta-button:hover {
-    background-color: #2563eb;
+    box-shadow: 0 0 15px var(--purple), 0 0 10px var(--light-blue);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
 }
 
 .features {
@@ -133,6 +189,11 @@ body {
 
 .features h2, .news-section h2 {
     font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.features h2 span, .device-section h1 span, .team-section h1 span {
+    color: var(--light-blue);
     margin-bottom: 1rem;
 }
 
@@ -150,8 +211,8 @@ body {
 }
 
 .feature-card {
-    background-color: rgba(30, 58, 138, 0.2); /* Slightly lighter than device card */
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 2rem;
     text-align: center;
@@ -160,7 +221,7 @@ body {
 
 .feature-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-color: var(--light-blue);
 }
 
 .feature-card .icon {
@@ -193,8 +254,8 @@ body {
 }
 
 .news-card {
-    background-color: rgba(30, 58, 138, 0.2);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
     border-radius: 12px;
     overflow: hidden;
     text-align: left;
@@ -203,7 +264,7 @@ body {
 
 .news-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-color: var(--light-blue);
 }
 
 .news-card img {
@@ -242,7 +303,7 @@ body {
 .footer {
     padding: 2rem 0;
     text-align: center;
-    border-top: 1px solid #1e3a8a;
+    border-top: 1px solid var(--border-color);
 }
 
 /* style.css (Tambahkan kode ini di bagian paling bawah) */
@@ -274,8 +335,8 @@ body {
     max-width: 500px;
     padding: 0.8rem 1.2rem;
     border-radius: 25px;
-    border: 1px solid rgba(59, 130, 246, 0.5);
-    background-color: rgba(30, 58, 138, 0.5);
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg);
     color: var(--white);
     font-size: 1rem;
 }
@@ -297,8 +358,8 @@ body {
 }
 
 .device-card {
-    background-color: rgba(30, 58, 138, 0.3);
-    border: 1px solid rgba(59, 130, 246, 0.3);
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 1.5rem;
     text-align: center;
@@ -307,6 +368,7 @@ body {
 
 .device-card:hover {
     transform: translateY(-5px);
+    border-color: var(--light-blue);
 }
 
 .device-card img {
@@ -330,7 +392,7 @@ body {
 
 .download-button {
     display: block; /* Makes the button take the full width */
-    background-color: var(--light-blue);
+    background: var(--light-blue);
     color: var(--white);
     padding: 0.8rem 1.5rem;
     border-radius: 8px;
@@ -340,7 +402,8 @@ body {
 }
 
 .download-button:hover {
-    background-color: #2563eb;
+    background: var(--purple);
+    box-shadow: 0 0 10px var(--purple);
 }
 
 /* Team Section */
@@ -368,8 +431,8 @@ body {
 }
 
 .team-card {
-    background-color: rgba(30, 58, 138, 0.2);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 1.5rem;
     text-align: center;
@@ -378,7 +441,7 @@ body {
 
 .team-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-color: var(--light-blue);
 }
 
 .team-card img {
@@ -461,6 +524,14 @@ body {
 
 /* @media query: Aturan ini hanya berlaku untuk layar kecil (HP/Tablet) */
 @media(max-width: 768px) {
+    .nav-menu {
+        align-items: center; /* Center items in mobile menu */
+        padding-bottom: 2rem; /* Add padding at the bottom of mobile menu */
+    }
+    .language-dropdown {
+        margin-left: 0;
+        margin-top: 1.5rem;
+    }
     .hamburger {
         display: block; /* Tampilkan hamburger di layar kecil */
     }
@@ -501,6 +572,17 @@ body {
     }
 
     .hero p {
+        font-size: 1.1rem; /* Sedikit lebih kecil dari 1.2rem */
+    }
+
+    .features h2, .news-section h2, .device-section h1, .team-section h1 {
+        font-size: 2.2rem; /* Sedikit lebih kecil dari 2.5rem/2.8rem */
+    }
+
+    .device-grid, .feature-grid, .news-grid, .team-grid {
+        gap: 1.5rem; /* Mengurangi jarak antar kartu di layar kecil */
+    }
+}
         font-size: 1.1rem; /* Sedikit lebih kecil dari 1.2rem */
     }
 
